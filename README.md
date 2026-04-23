@@ -37,7 +37,7 @@ Reach out on the private working group mailing list: wg-agentic-commerce@lists.a
 
 Join the private Working Group [Discord channel](https://discord.gg/BAzqNsGctj). **(Please do not share this link publicly; it is for Working Group members only).**
 
-Need help? email: operations@aaif.io.
+Need help? email: support@aaif.io.
 
 ## Join a Working Group
 The TC supports multiple technical working groups. **Working Groups are only open to AAIF members at this time.** Participants must be invited to join. 
