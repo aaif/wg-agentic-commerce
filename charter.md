@@ -2,102 +2,109 @@
 
 ### 1. Working Group Name
 
-* **Working Group Name:** Agentic Commerc
+* **Working Group Name:** Agentic Commerce
 * **Short Name / Acronym:** AC WG
 * **Date Approved:** YYYY-MM-DD
 * **Last Updated:** YYYY-MM-DD
-* **Homepage / Repo (if applicable): github.com/aaif/wg-agentic-commerc
+* **Homepage / Repo (if applicable):** github.com/aaif/wg-agentic-commerce
 * **Primary Contact (Chair/Lead):** Ilya Grigorik, Rahul Bansal
 
 ---
 
 ### 2. Purpose and Mission
 
-**Mission Statement**  
-The Agentic Commerce Working Group advances the Agentic AI Foundation’s mission by defining open specifications, frameworks, terminology, interfaces, and interoperability guidance for commerce workflows carried out by AI agents on behalf of users, businesses, and software systems. The Working Group focuses on enabling verifiable, portable, secure, and standards-aligned agentic commerce across discovery, negotiation, checkout, payment orchestration, and post-purchase lifecycle interactions while embracing principles of neutrality. 
+**Mission Statement**
+The Agentic Commerce Working Group advances the Agentic AI Foundation’s mission by cataloging, aligning, and harmonizing open specifications, frameworks, and terminology for commerce workflows carried out by AI agents on behalf of users, businesses, and software systems. The Working Group provides interoperability guidance and reference architectures across discovery, negotiation, checkout, payment orchestration, and post-purchase lifecycle interactions, supporting convergence of emerging protocols while maintaining protocol neutrality. The Working Group does not author competing commerce protocols; it identifies common ground across existing and emerging work and recommends paths forward to the Technical Committee.
 
 #### Why this Working Group exists
-This Working Group was formed to address:
+Multiple agentic commerce protocols are emerging in parallel — across merchants, wallets, payment networks, identity providers, and AI platforms — without a neutral forum in which they can be compared, mapped, or aligned. This Working Group exists to be that forum, addressing:
 
-* **Lack of shared vocabulary and reference models** for agentic commerce, including roles, transaction states, delegated authority, and autonomy boundaries.  
-* **Fragmented interfaces across merchants, wallets, payment providers, and identity systems**, which limit interoperability between agents and commerce systems.  
-* **Insufficient guidance for trust, safety, and accountability** in agent-initiated commerce, especially for consent, human oversight, fraud signaling, and post-purchase recourse.
+* **Lack of shared vocabulary and reference models** across emerging protocols, including roles, transaction states, delegated authority, and autonomy boundaries.
+* **Fragmented interfaces across merchants, wallets, payment providers, and identity systems**, which force each protocol to re-solve the same integration problems and limit composition across ecosystems.
+* **Insufficient shared guidance for trust, safety, and accountability** in agent-initiated commerce, leading each protocol to reinvent these primitives independently.
 
 #### Alignment to Foundation Goals
 The work of this WG supports:
 
 * **Open interoperability for agentic systems** through common models, interfaces, and implementation guidance.  
-* **Safe, trustworthy, and governable agentic AI** through standards-oriented patterns for delegated authority, traceability, and human oversight.  
+* **Safe, trustworthy, and governable agentic AI** through standards-oriented patterns for delegated authority, traceability, and human oversight.
 * **Cross-ecosystem collaboration** across identity, trust, security, payments, wallets, and commerce infrastructure.
 
 ---
 
 ### 3. Scope
 
+#### Scoping Principle
+
+The WG focuses on **interfaces, signals, and interoperability patterns** between agentic systems and the broader commerce stack. The WG does **not** address the **operations, internals, or implementation details** of the underlying systems — those remain with their respective domain owners (payment networks, fraud platforms, identity providers, etc.) or with sibling WGs.
+
 #### In Scope (what the WG will explore)
 
-* Merchant interaction  
-  * Discovery & negotiation  
-  * Cart, Checkout	  
-  * Fraud (signal, interface)   
-  * Human in the loop / autonomy  
-  * Post-purchase (claims, dispute resolution, chargebacks)  
-* Identity & delegated authority (collaboration with Identity and trust)   
-* Agentic Payments (settlement)  
-  * Wallets (interface)  
-  * Interface to payment rails (card networks, real-time, blockchain)  
-* Governance (operating within, agent-centric)
+Across the agentic commerce lifecycle:
+
+* **Discovery & negotiation** — agent–merchant interfaces for offers, availability, terms, and fulfillment options.
+* **Cart & checkout** — cart composition, validation, and checkout handoff between agent and merchant systems.
+* **Identity & delegated authority** — buyer identity, agent authority scoping, and consent conveyance *(in collaboration with the Identity & Trust WG)*.
+* **Agentic payments** — interfaces between agents, wallets, and payment networks (cards, real-time, on-chain); intent, authorization, and settlement signals. **Excludes** the operational mechanics of any specific rail.
+* **Fraud signaling** — risk-posture signals exchanged between agents, merchants, and risk systems. **Excludes** detection, mitigation, and resolution.
+* **Human-in-the-loop & autonomy boundaries** — confirmation, escalation, and autonomy-level representation.
+* **Post-purchase interfaces** — claims, dispute initiation, chargeback signaling, and order-status conveyance.
 
 #### Out of Scope (what the WG will not do)
 
-* Responsible AI and societal impacts  
-* Payment Rails (operations, internals)  
-* Fraud (detection, mitigation, resolution) – Security/Observability WGs  
-* UIs / marketplaces / hardware (PoS)  
-* Governance (existing non-agentic related)   
-* Protocol design
+* **Operations, internals, and implementation details** of any specific commerce system — payment rail operations, fraud detection/mitigation/resolution, identity-provider internals, marketplace operations.
+* **Responsible AI and societal-impact policy** — handled at the Foundation level.
+* **End-user UI, marketplace product design, and hardware** (PoS, terminals).
+* **Non-agentic commerce governance** — legacy topics not specific to agentic flows.
+* **Authoring new commerce protocols** — the WG catalogs, aligns, and recommends; it does not produce competing protocol specifications *(see §2)*.
 
 #### Assumptions and Dependencies
 
-* **Assumptions:** Identity and trust WG and Security and Privacy WG handling core responsibility with Agentic Commerce collaborating  
-* **Dependencies:** Identity and trust WG, Security and Privacy WG, Observability and Traceability
+**Assumption.** Core agent identity, security, and observability primitives are addressed by sibling WGs. The Agentic Commerce WG focuses on the **commerce-specific application** of those primitives, not their definition.
+
+**Separation of concerns with sibling WGs:**
+
+* **Identity & Trust WG** owns agent and buyer identity primitives, delegation models, and credential formats. **AC WG** applies these to commerce flows (buyer-to-agent delegation in checkout, agent identity in merchant interactions).
+* **Security & Privacy WG** owns threat models, encryption, and privacy frameworks. **AC WG** applies these to commerce-specific data (payment data, cart/checkout PII, dispute evidence).
+* **Observability & Traceability WG** owns telemetry, audit, and logging frameworks. **AC WG** applies these to commerce signals (transaction audit trails, post-purchase event records).
+
+Coordination is continuous; this WG does not duplicate work in progress in sibling WGs.
 
 ---
 
 ### 4. Goals, Deliverables, and Success Criteria
 
-#### 3-6-Month Goals
+#### Initial Goals
 
-1. Agentic Commerce Taxonomy
+1. **Agentic Commerce Capability Map**
 2. Agentic Commerce Gap Analysis Document
 3. Agentic Commerce Best Practices Guide
 4. Agentic Commerce End-to-End Reference Architecture
+5. **Recommendations to the Technical Committee on Foundation-Hosted Projects**
 
 #### **Planned Deliverables**
 For each deliverable, define owner, format, and target date.
 
-* Agentic Commerce Taxonomy  
-  * **Owner:** [Role/Name], **Format:** report, **Target:** 2026-06-01  
-* Agentic Commerce Gap Analysis Document  
-  * **Owner:** [Role/Name], **Format:** report, **Target:** 2026-07-01  
-* Agentic Commerce Best Practices Guide  
-  * **Owner:** [Role/Name], **Format:** report, **Target:** 2026-08-01  
-* Agentic Commerce End-to-End Reference Architecture  
+* **Agentic Commerce Capability Map**
+  * **Description:** A reference matrix of capabilities the agentic commerce ecosystem must support — across discovery, delegated authority, checkout, payment signaling, fraud signaling, and post-purchase flows — together with a minimal shared frame for roles and lifecycle phases. Existing protocols (UCP, ACP, Mastercard VI, Visa TAP, and others) map their native features to this capability set on their own terms; the WG does not introduce alternative terminology for protocol-defined concepts.
+  * **Owner:** [Role/Name], **Format:** report, **Target:** 2026-09-01
+* **Recommendations to the Technical Committee on Foundation-Hosted Projects**
+  * **Description:** Based on the Capability Map and Gap Analysis, a set of recommendations to the AAIF Technical Committee identifying which existing or emerging agentic commerce projects (or portions thereof) are candidates for hosting under the Foundation. Recommendations include rationale, scope, suggested governance model, and dependencies. The WG does not make hosting decisions; it produces structured input for the TC.
   * **Owner:** [Role/Name], **Format:** report, **Target:** 2026-10-01
 
-**Definition of Done (DoD)**  
+**Definition of Done (DoD)**
 A deliverable is considered complete when:
 
-* It has been reviewed and approved through the Working Group process.  
-* It has been published in the Working Group repository or site.  
+* It has been reviewed and approved through the Working Group process.
+* It has been published in the Working Group repository or site.
 * Any required supporting examples, reference materials, or validation artifacts have been made available.
 
 **Success Metrics (KPIs)** (pick a small set)
 
-* **Adoption:** number of downstream projects, implementations, or external references adopting WG outputs  
-* **Quality:** completion of review process and any applicable security or architecture review  
-* **Community:** active contributors, meeting attendance, issue throughput  
-* **Timeliness:** percentage of milestones met on schedule
+* **Alignment:** number of existing or emerging agentic commerce protocols (e.g., UCP, ACP) that incorporate or reference the WG’s capability map and interoperability guidance.
+* **Quality:** completion of review process and any applicable security or architecture review.
+* **Community:** active contributors, meeting attendance, issue throughput.
+* **Timeliness:** percentage of milestones met on schedule.
 
 ---
 
@@ -176,24 +183,31 @@ A deliverable is considered complete when:
 
 ### 8. Relationship to Other Groups
 
-**Internal Coordination**
+**Sibling Working Groups (intra-Foundation)**
 
-* Security and Privacy WG  
-* Identity and Trust WG  
+* Security and Privacy WG
+* Identity and Trust WG
 * Observability and Traceability WG
 
-**External Coordination**
+*See §3 Assumptions and Dependencies for separation of concerns.*
 
-* FIDO (Agentic Payments WG)  
-* OpenID Foundation  
-* Projects:  
-  * Google UCP  
-  * OpenAI/Stripe ACP  
-  * Mastercard VI  
-  * Visa TAP  
-* PCI SSC  
-* EMVCo  
+**External Standards Bodies**
+
+* FIDO (Agentic Payments WG)
+* OpenID Foundation
+* PCI SSC
+* EMVCo
 * OpenWallet Foundation
+
+**Source Projects (primary inputs to the Capability Map)**
+
+* UCP
+* ACP
+* Mastercard VI
+* Visa TAP
+* (and other emerging agentic commerce proposals)
+
+The WG engages with these projects as primary inputs to the Capability Map (§4, Deliverable 1) and may invite their authors to participate directly in the WG’s work.
 
 ---
 
