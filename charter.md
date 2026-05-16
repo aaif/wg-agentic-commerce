@@ -4,8 +4,8 @@
 
 * **Working Group Name:** Agentic Commerce
 * **Short Name / Acronym:** AC WG
-* **Date Approved:** YYYY-MM-DD
-* **Last Updated:** YYYY-MM-DD
+* **Date Approved:** 2026-05-15
+* **Last Updated:** 2026-05-15
 * **Homepage / Repo (if applicable):** github.com/aaif/wg-agentic-commerce
 * **Primary Contact (Chair/Lead):** Ilya Grigorik, Rahul Bansal
 
