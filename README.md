@@ -1,10 +1,10 @@
 # Agentic Commerce Working Group
 
-For more information, review the Working Group Charter (*coming soon*).
+For more information, review the [Working Group Charter](https://github.com/aaif/wg-agentic-commerce/blob/main/charter.md).
 
 ## Mission
 
-The mission of this working group is currently being defined. Check back soon for updates.
+The Agentic Commerce Working Group advances the Agentic AI Foundation’s mission by cataloging, aligning, and harmonizing open specifications, frameworks, and terminology for commerce workflows carried out by AI agents on behalf of users, businesses, and software systems. The Working Group provides interoperability guidance and reference architectures across discovery, negotiation, checkout, payment orchestration, and post-purchase lifecycle interactions, supporting convergence of emerging protocols while maintaining protocol neutrality. The Working Group does not author competing commerce protocols; it identifies common ground across existing and emerging work and recommends paths forward to the Technical Committee.
 
 ## Chairs
 
