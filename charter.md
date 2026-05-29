@@ -1,4 +1,4 @@
-## Agentic Commerce
+# Agentic AI Foundation Working Group Charter - Agentic Commerce
 
 ### 1. Working Group Name
 
