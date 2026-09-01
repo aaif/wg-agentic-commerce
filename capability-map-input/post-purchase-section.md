@@ -24,18 +24,20 @@ Cross-boundary dimensions apply across P1-P7: signal provenance (self-reported v
 
 ## 3. Evidence and auditability: machine-readable contract
 
-The auditability and evidence-binding capabilities (issue #5 row) are supported by a bounded verification result: a machine-readable verdict envelope that a relying system can consume directly, or use to replay verification when stakes demand it. Minimum fields:
+The auditability and evidence-binding capabilities (issue #5 row) are supported by a bounded verification result: a machine-readable verdict envelope that a relying system can consume directly, or use to replay verification when stakes demand it.
 
-1. verdict (supported | contradicted | unresolvable, the three-state reconciliation)
-2. verifier (identity that computed the classification, distinct from the producer)
-3. verifier_signature (signed over the verdict and evidence fingerprints)
-4. evidence_refs (delegation, transaction, claim/consent references, the binding set)
-5. evidence_fingerprints (canonical hashes, RFC 8785, for deterministic replay)
-6. verification_basis (which checks were evaluated, so independent verifiers compare like for like)
-7. witness_scope (what the verdict does and does not cover)
-8. timestamp (freshness)
+**Capability-level requirements (protocol-independent).** A compliant flow satisfies these properties on its own terms:
 
-Consumption rule: a relying system may treat the verdict as bounded when the envelope is complete (verdict bound to evidence, verifier identifiable and signed, scope explicit); otherwise the safe default is replay. The evidence layer standardizes the envelope; the relying party owns the state-to-action rule, fast path versus audit path.
+- **Verifiable binding.** The verdict is bound to the evidence it claims to cover, so a relying system can check the binding deterministically.
+- **Resolvable attribution.** The verifier is identifiable and distinct from the producer, and the parties, delegation, and transaction are attributable where claimed.
+- **Explicit scope.** The verdict states what it does and does not cover, so a relying system can bound its reliance.
+- **Deterministic integrity check.** The evidence can be re-checked against canonical references without trusting the producer.
+
+**Conformant representation (not a mandate).** One way to satisfy the above, used as the reference shape for this section: a bounded envelope with verdict (supported | contradicted | unresolvable, the three-state reconciliation), verifier identity, verifier signature over verdict and evidence fingerprints, evidence references (delegation, transaction, claim/consent), evidence fingerprints (canonical hashes, e.g. RFC 8785, for deterministic replay), verification basis (which checks were evaluated), witness scope, and timestamp. Protocols that satisfy the capability properties with a different representation still map into the row.
+
+**Failure class.** The headline state alone is under-specified: `unresolvable` can mean materially different conditions (unavailable evidence, an integrity failure, an unresolved verifier, or a failed binding). A machine-readable failure class is carried separately from the headline verdict so the relying party's policy can distinguish these before acting. Without it, the differences disappear before the policy runs.
+
+Consumption rule: a relying system may treat the verdict as bounded when the envelope is complete (verdict bound to evidence, verifier identifiable and signed, scope explicit, failure class present where the state is not `supported`); an incomplete result is not sufficient on its own, and the relying party's evidence policy owns what follows, including replay where the necessary material is retained.
 
 Open questions carried from the row: What is the minimal set of bindings a dispute resolver can rely on? Which records must be retained, by whom, and for how long? How does the envelope interoperate with sibling WG primitives (Observability and Traceability audit trails; Identity and Trust delegation and consent)?
 
