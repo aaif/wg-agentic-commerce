@@ -72,6 +72,7 @@ We searched issues, pull requests and discussions in each protocol's public repo
 | DN5 | AP2 | ap2#69 | A feature request for negotiation, with no fields defined |
 | DN5 | x402 | x402#1960, x402#683 | Another project's quote-and-commit protocol, and basket line items |
 | DN6 | ACP | acp#329, acp#330 | Signed approval receipts for exact items, amounts and expiry |
+| DN6 | ACP | acp#325 (spec enhancement proposal, awaiting a sponsor) | Checkout completion bound to the state the buyer approved: amount, currency and a hash of the line items, which the seller recomputes and refuses on a mismatch |
 | DN6 | AP2 | ap2#338 | A dispute evidence file that can be checked offline later |
 | DN6 | x402 | x402#2833, x402#2906, x402#3234, x402#3304, x402#3371, x402#3377, x402#3758, x402#3783 | Receipts and delivery evidence, some with a hash of the response served and its time |
 | DN6 | Visa TAP | tap#16 | Merchant-signed receipts with a hash of the transaction payload and its time |
